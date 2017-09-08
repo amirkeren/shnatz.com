@@ -27,3 +27,17 @@ $('#facebook').mouseenter(function() {
 $('#facebook').mouseout(function() {
     $(this).attr('src', "img/facebook.png");
 });
+
+$(function () {
+	var filterList = {
+		init: function () {
+			$('#portfoliolist').mixItUp({
+				selectors: {
+  			  target: '.portfolio',
+  			  filter: '.filter'	
+  		  }
+			});								
+		}
+	};
+	filterList.init();
+});
