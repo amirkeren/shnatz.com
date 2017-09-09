@@ -196,6 +196,10 @@ body {
 	float: left;
 }
 
+.filtersinline {
+	margin-top:8%;
+}
+
 @media screen and (max-width: 480px) {
     .headerinline {
         display: inline-block;
@@ -215,5 +219,9 @@ body {
 
     .container {
     	margin-bottom:15%
+    }
+
+    .filtersinline {
+    	
     }
 }
