@@ -181,6 +181,10 @@ body {
 }
 
 .headerinline {
+	margin-top: 7%;
+}
+
+.titleinline {
 	font-family: 'Open Sans Condensed', sans-serif; 
 	font-size: 2em; 
 	display: inline;
@@ -201,7 +205,13 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-    .headerinline {
+	.headerinline {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+    .titleinline {
         display: inline-block;
         width: 77%;
         font-size: 1.7em;
@@ -215,6 +225,7 @@ body {
 
     .logoinline {
     	display: inline-block;
+    	float: none;
     }
 
     .container {
