@@ -179,3 +179,41 @@ body {
   width: 0;
   height: 0;
 }
+
+.headerinline {
+	font-family: 'Open Sans Condensed', sans-serif; 
+	font-size: 2em; 
+	display: inline;
+}
+
+.divinline {
+	display: inline;
+}
+
+.logoinline {
+	display: inline;
+	margin: 0px 2% 0px 0px;
+	float: left;
+}
+
+@media screen and (max-width: 480px) {
+    .headerinline {
+        display: inline-block;
+        width: 77%;
+        font-size: 1.7em;
+        padding-bottom: 1em;
+    }
+
+    .divinline {
+    	display: inline-block;
+    	width: 60%;    
+    }
+
+    .logoinline {
+    	display: inline-block;
+    }
+
+    .container {
+    	margin-bottom:15%
+    }
+}

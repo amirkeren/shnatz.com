@@ -35,7 +35,10 @@ $(function () {
 				selectors: {
   			  target: '.portfolio',
   			  filter: '.filter'	
-  		  }
+  		  },
+        load: {
+          filter: '.games, .print, .illustrations, .web'
+        }
 			});								
 		}
 	};
