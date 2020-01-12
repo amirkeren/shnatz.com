@@ -1,6 +1,6 @@
 {
   "name": "Shnatz",
-  "version": 1.0.0",
+  "version": "1.0.0",
   "description": "Portfolio for my different works",
   "engines": {
     "node": "12.x"
