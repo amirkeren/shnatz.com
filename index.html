@@ -1,0 +1,118 @@
+<html>
+	<head>
+		<title>Shantz Design</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Portfolio of my various works">
+		<meta name="author" content="Noam Keren">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<base href="/">
+		<link rel="stylesheet" href="css/layout.css"/>
+		<link rel="stylesheet" href="css/normalize.css"/>
+		<link rel='stylesheet' href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">
+		<link rel='stylesheet' href="http://fonts.googleapis.com/css?family=Open+Sans">
+		<link rel='stylesheet' href="http://fonts.googleapis.com/css?family=Open+Sans:300">
+		<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+		<link type="text/css" rel="stylesheet" href="css/lightGallery.css" /> 
+	</head>
+	<body>
+		<div class="container">
+		<!-- ======================================= Header ======================================= -->
+			<div class="headerinline">
+			    <div class="logoinline">
+			        <img src="img/logo.png"/>
+			    </div>
+			    <div class="titleinline"> 
+			        Graphic Design and Illustration
+			    </div>
+			    <div class="divinline">
+			    	<!-- Icons -->
+			        <a href="https://www.linkedin.com/in/shnatz"><img id="linkedin" src="img/linkedin.png" align="right"/></a>
+			        <a href="https://www.facebook.com/shnatz2014"><img id="facebook" src="img/facebook.png" align="right"/></a>
+			        <a href="https://www.behance.net/Shnatz"><img id="behance" src="img/behance.png" align="right"/></a>
+			        <a href="mailto:design@shnatz.com"><img id="mail" src="img/mail.png" align="right"/></a>
+			    </div>
+			</div>
+		<!-- ======================================= About ======================================= -->
+			<div style="margin-top:6%;">
+				<p style="font-weight: 300; font-size:1.3em">
+					I love old-school illustration (painting, sketching, drawing) as well as digital stuff. Oh and animals, photography, languages, games, cookies, geeky stuff and fluffy things. 
+					Most of all though, I love creating worlds and bringing characters to life...
+				</p>
+			</div>
+		<!-- ======================================= Tags ======================================== -->
+			<div class="filtersinline">
+				<ul id="filters" class="clearfix">
+					<li><span class="active filter" data-filter=".games, .print, .illustrations, .web">All</span></li>
+					<li><span class="filter" data-filter=".games">Games</span></li>
+					<li><span class="filter" data-filter=".print">Print</span></li>
+					<li><span class="filter" data-filter=".illustrations">Illustrations</span></li>
+					<li><span class="filter" data-filter=".web">Web</span></li>
+				</ul>
+			</div>
+		<!-- ======================================= Works ======================================= -->
+			<div id="portfoliolist">
+				
+				<!-- =========================== Print ============================== -->
+				<div class="portfolio print" data-cat="print">
+					<div id="afikim" class="portfolio-wrapper">				
+						<div class="item" data-src="img/work/Afikim_Thumb.png" data-responsive="img/work/Afikim_Thumb.png 375, img/work/Facebook_Thumb.png 757" data-sub-html="<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>">
+					    	<img src="img/work/Afikim_Thumb.png" />
+					  	</div>
+					  	<div class="item" data-src="img/work/Facebook_Thumb.png" data-responsive="img/work/Afikim_Thumb.png 375, img/work/Facebook_Thumb.png 757" style="display: none">
+					    	<img src="img/work/Facebook_Thumb.png" />
+					  	</div>
+					  	<div class="item" data-src="img/work/Facebook_Thumb.png" data-responsive="img/work/Afikim_Thumb.png 375, img/work/Facebook_Thumb.png 757" style="display: none">
+					    	<img src="img/work/Facebook_Thumb.png" />
+					  	</div>
+						<div class="label">
+							<div class="label-text">
+								<a class="text-title">Bird Document</a>
+								<span class="text-category">Logo</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>				
+
+				<!-- =========================== Games ============================== -->
+				<div class="portfolio games" data-cat="games">
+					<div id="facebookapps" class="portfolio-wrapper">			
+						<div class="item" data-src="img/work/FacebookApps_Thumb.jpg" data-sub-html="<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>">
+					    	<img src="img/work/FacebookApps_Thumb.jpg" />
+					  	</div>
+					  	<div class="item" data-src="img/work/GameJam_Thumb.png" style="display: none">
+					    	<img src="img/work/GameJam_Thumb.png" />
+					  	</div>
+					  	<div class="item" data-src="img/work/GameJam_Thumb.png" style="display: none">
+					    	<img src="img/work/GameJam_Thumb.png" />
+					  	</div>
+						<div class="label">
+							<div class="label-text">
+								<a class="text-title">Visual Infography</a>
+								<span class="text-category">APP</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- ===================================== Scripts ====================================== -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+	    <script src="https://cdn.jsdelivr.net/combine/npm/lightgallery,npm/lg-fullscreen,npm/lg-share,npm/lg-thumbnail"></script>
+	    <script src="js/jquery.mixitup.min.js"></script>
+	    <script src="js/auxiliary.js"></script>
+	    <script type="text/javascript">
+		    $(document).ready(function() {
+		        $('#afikim').lightGallery({
+				    selector: '.item'
+				});
+		        $('#facebookapps').lightGallery({
+				    selector: '.item'
+				});
+		    });
+		</script>
+	</body>
+</html>
