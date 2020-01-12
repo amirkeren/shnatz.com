@@ -1,13 +1,14 @@
 {
-  "name": "Shnatz",
-  "version": "1.0.0",
-  "description": "Portfolio for Noam",
+  "name": "node-js-getting-started",
+  "version": "0.3.0",
+  "description": "A sample Node.js app using Express 4",
   "engines": {
     "node": "12.x"
   },
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node index.js",
+    "test": "node test.js"
   },
   "dependencies": {
     "ejs": "^2.5.6",
@@ -19,12 +20,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/amirkeren/shnatz.com"
+    "url": "https://github.com/heroku/node-js-getting-started"
   },
   "keywords": [
-    "shnatz",
-    "design",
-    "web"
+    "node",
+    "heroku",
+    "express"
   ],
   "license": "MIT"
 }

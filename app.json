@@ -1,8 +1,8 @@
 {
   "name": "Start on Heroku: Node.js",
-  "description": "Portfolio for Noam",
-  "repository": "https://github.com/amirkeren/shnatz.com",
-  "logo": "http://www.shnatz.com/img/logo.png",
-  "keywords": ["shnatz", "design", "web"],
+  "description": "A barebones Node.js app using Express 4",
+  "repository": "https://github.com/heroku/node-js-getting-started",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "keywords": ["node", "express", "heroku"],
   "image": "heroku/nodejs"
 }
