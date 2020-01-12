@@ -1,0 +1,8 @@
+{
+  "name": "Start on Heroku: Node.js",
+  "description": "Portfolio for Noam",
+  "repository": "https://github.com/amirkeren/shnatz.com",
+  "logo": "http://www.shnatz.com/img/logo.png",
+  "keywords": ["shnatz", "design", "web"],
+  "image": "heroku/nodejs"
+}
