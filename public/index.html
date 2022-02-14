@@ -36,7 +36,7 @@
 			    <div class="divinline">
 			    	<!-- Icons -->
 			        <a href="https://www.linkedin.com/in/shnatz"><img id="linkedin" src="img/linkedin.png" align="right"/></a>
-			        <a href="https://www.facebook.com/shnatz2014"><img id="facebook" src="img/facebook.png" align="right"/></a>
+			       <!-- <a href="https://www.facebook.com/shnatz2014"><img id="facebook" src="img/facebook.png" align="right"/></a> -->
 			        <a href="https://www.behance.net/Shnatz"><img id="behance" src="img/behance.png" align="right"/></a>
 			        <a href="mailto:design@shnatz.com"><img id="mail" src="img/mail.png" align="right"/></a>
 			    </div>
@@ -51,12 +51,13 @@
 		<!-- ======================================= Tags ======================================== -->
 			<div class="filtersinline">
 				<ul id="filters" class="clearfix">
-					<li><span class="active filter" data-filter=".games, .print, .illustrations, .web, .branding">All</span></li>
+					<li><span class="active filter" data-filter=".games, .print, .illustrations, .web, .branding, .ux">All</span></li>
 					<li><span class="filter" data-filter=".print">Print</span></li>
 					<li><span class="filter" data-filter=".illustrations">Illustrations</span></li>
 					<li><span class="filter" data-filter=".web">Web</span></li>
 					<li><span class="filter" data-filter=".branding">Branding</span></li>
 					<li><span class="filter" data-filter=".games">Games</span></li>
+					<li><span class="filter" data-filter=".ux">UX</span></li>
 				</ul>
 			</div>
 		<!-- ======================================= Works ======================================= -->
@@ -93,7 +94,32 @@
 					</div>
 				</div>
 	<!-- ========================= </Ahoy> ============================= -->
-			
+
+	<!-- ======================= Cynamics =========================== -->
+				<div class="portfolio web ux" data-cat="ux">
+					<div id="cynamics" class="portfolio-wrapper">				
+						<div class="item" data-src="img/work/cyn1.png">
+							<img src="img/work/cyn_thumb.png"/>
+						</div>
+						<div class="item" data-src="img/work/cyn2.png"  style="display: none">
+							<img src="img/work/cyn2.png"/>
+						</div>
+						<div class="item" data-src="img/work/cyn3.png"  style="display: none">
+							<img src="img/work/cyn3.png"/>
+						</div>
+						<div class="item" data-src="img/work/cyn4.png"  style="display: none">
+							<img src="img/work/cyn4.png"/>
+						</div>
+						<div class="label">
+							<div class="label-text">
+								<a class="text-title">Cynamics</a>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>
+	<!-- ======================= Cynamics ========================== -->	
+
 	<!-- ========================== <Trio> ============================== -->
 				<div class="portfolio print branding illustrations" data-cat="print print illustrations">
 					<div id="trio" class="portfolio-wrapper">				
@@ -581,35 +607,8 @@
 								</div>
 							</div>
 						</div>
-					<!-- ========================= </Wedding> ============================= -->
+					<!-- ========================= </Willy> ============================= -->
 
-					<!-- ======================= Blogs =========================== -->
-						<div class="portfolio web" data-cat="web">
-							<div id="blogs" class="portfolio-wrapper">				
-								<div class="item" data-src="img/work/blogs1.png" data-sub-html="<h4>Marketing blogs - designed at Ahoy! Creative</h4>">
-									<img src="img/work/blogs_thumb.png" />
-								</div>
-								<div class="item" data-src="img/work/blogs2.png"  style="display: none">
-									<img src="img/work/blogs2.png" />
-								</div>
-								<div class="item" data-src="img/work/blogs3.png"  style="display: none">
-									<img src="img/work/blogs3.png" />
-								</div>
-								<div class="item" data-src="img/work/blogs4.png"  style="display: none">
-									<img src="img/work/blogs4.png" />
-								</div>
-								<div class="item" data-src="img/work/blogs5.png"  style="display: none">
-									<img src="img/work/blogs5.png" />
-								</div>
-								<div class="label">
-									<div class="label-text">
-										<a class="text-title">Marketing Blogs</a>
-									</div>
-									<div class="label-bg"></div>
-								</div>
-							</div>
-						</div>
-					<!-- ======================= Blogs ========================== -->	
 
 					<!-- ======================= Illustrations =========================== -->
 					<div class="portfolio illustrations" data-cat="illustrations">
@@ -716,13 +715,12 @@
 				$('#ahoy').lightGallery({
 				    selector: '.item'
 				});
-				$('#blogs').lightGallery({
-				    selector: '.item'
-				});
 				$('#illus').lightGallery({
 				    selector: '.item'
 				});
-				
+				$('#cynamics').lightGallery({
+				    selector: '.item'
+				});
 		    });
 		</script>
 	</body>
