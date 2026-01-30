@@ -151,13 +151,14 @@
 
         .project-item {
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
             display: block;
+            overflow: hidden;
+            border-radius: 4px;
         }
 
         .project-item:hover {
-            transform: translateY(-5px);
+            transform: none;
         }
 
         .project-item img {
@@ -166,10 +167,11 @@
             object-fit: cover;
             border-radius: 4px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-            transition: box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .project-item:hover img {
+            transform: scale(1.05);
             box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
 
@@ -411,6 +413,10 @@
 
         /* Responsive - Small Tablet / Large Phone */
         @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
             header {
                 padding: 1.5rem;
             }
