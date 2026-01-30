@@ -407,11 +407,7 @@
                 font-size: 2.2rem;
             }
 
-            .image-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .image-grid.three-col {
+            .image-grid, .image-grid.three-col {
                 grid-template-columns: 1fr;
             }
 
@@ -425,6 +421,29 @@
 
             .page-wrapper {
                 display: block;
+            }
+
+            .page-content {
+                padding-left: 0;
+            }
+
+            .hero {
+                padding: 0 1.5rem 1rem;
+            }
+
+            .hero-meta {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+
+            .hero-image-wrapper {
+                left: calc(50% - 1.5rem);
+                width: calc(100vw + 3rem);
+            }
+
+            .problem-solution {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
             }
         }
     </style>
