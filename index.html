@@ -60,6 +60,14 @@
             transition: opacity 0.4s ease;
         }
 
+        .header-brand {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 12rem;
+        }
+
         header.hidden {
             opacity: 0;
             pointer-events: none;
@@ -404,7 +412,11 @@
         /* Responsive - Small Tablet / Large Phone */
         @media (max-width: 768px) {
             header {
-                padding: 2.5rem 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .header-brand {
+                margin-left: 0;
             }
 
             header h1 {
@@ -720,7 +732,7 @@
 </head>
 <body>
     <header>
-        <a href="index.html" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-left: 12rem;"><img src="images/shnatz.avif" alt="Shnatz" style="height: 26px;"> <span style="font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 12px; color: var(--color-text);">UX · UI · DESIGN</span></a>
+        <a href="index.html" class="header-brand"><img src="images/shnatz.avif" alt="Shnatz" style="height: 26px;"> <span style="font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 12px; color: var(--color-text);">UX · UI · DESIGN</span></a>
     </header>
 
 
