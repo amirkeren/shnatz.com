@@ -44,14 +44,25 @@
             color: var(--color-text);
             min-height: 100vh;
             line-height: 1.6;
+            padding-top: 60px;
         }
 
         /* Header */
         header {
-            padding: 4rem 2rem 3rem;
-            text-align: center;
+            padding: 1.5rem 2rem;
+            text-align: left;
             background: var(--color-bg);
-            border-bottom: 1px solid var(--color-border);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            transition: opacity 0.4s ease;
+        }
+
+        header.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
         header h1 {
@@ -123,107 +134,52 @@
             font-weight: 300;
         }
 
-        /* Carousel Container */
-        .carousel-container {
-            position: relative;
-            max-width: 100%;
-            margin: 0 auto;
+        /* Project Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
-        .carousel {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            padding: 1rem 0;
-        }
-
-        .carousel-item {
-            flex: 0 0 280px;
+        .project-item {
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
             display: block;
         }
 
-        .carousel-item:hover {
+        .project-item:hover {
             transform: translateY(-5px);
         }
 
-        .carousel-item img {
+        .project-item img {
             width: 100%;
-            height: 200px;
+            height: 300px;
             object-fit: cover;
             border-radius: 4px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.1);
             transition: box-shadow 0.3s ease;
         }
 
-        .carousel-item:hover img {
+        .project-item:hover img {
             box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
 
-        .carousel-item .caption {
+        .project-item .caption {
             padding: 1rem 0.5rem;
-            text-align: center;
         }
 
-        .carousel-item .caption h3 {
+        .project-item .caption h3 {
             font-family: var(--font-heading);
-            font-size: 1.2rem;
+            font-size: 1.6rem;
             font-weight: 400;
             margin-bottom: 0.3rem;
             color: var(--color-text);
         }
 
-        .carousel-item .caption p {
-            font-size: 0.8rem;
+        .project-item .caption p {
+            font-size: 1rem;
             color: var(--color-text-light);
-        }
-
-        /* Carousel Navigation */
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .carousel-btn {
-            width: 44px;
-            height: 44px;
-            border: 1px solid var(--color-border);
-            background: var(--color-bg);
-            color: var(--color-text);
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: all 0.2s ease;
-        }
-
-        .carousel-btn:hover {
-            background: var(--color-accent);
-            border-color: var(--color-accent);
-            color: white;
-        }
-
-        .carousel-dots {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--color-border);
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .dot.active {
-            background: var(--color-accent);
         }
 
         /* Lightbox */
@@ -361,14 +317,14 @@
         .intro {
             text-align: left;
             max-width: 700px;
-            margin: 0 auto 4rem;
-            padding: 0 2rem;
+            margin: 0 0 4rem;
+            padding: 0;
             scroll-margin-top: 80px;
         }
 
         .intro p {
             color: var(--color-text-light);
-            margin-bottom: 1rem;
+            margin-bottom: 0;
             line-height: 1.8;
             font-weight: 300;
             font-size: 1rem;
@@ -427,7 +383,6 @@
             padding: 3rem;
             color: var(--color-text-muted);
             font-size: 0.85rem;
-            border-top: 1px solid var(--color-border);
             margin-top: 4rem;
         }
 
@@ -482,27 +437,8 @@
                 font-size: 1.8rem;
             }
 
-            .carousel {
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                padding: 1rem 0.5rem;
-                gap: 1rem;
-            }
-
-            .carousel-item {
-                flex: 0 0 260px;
-                scroll-snap-align: center;
-            }
-
-            .carousel-item img {
-                height: 180px;
-            }
-
-            .carousel-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
+            .project-grid {
+                grid-template-columns: 1fr;
             }
 
             .intro {
@@ -622,41 +558,8 @@
                 font-size: 0.8rem;
             }
 
-            .carousel {
-                gap: 0.75rem;
-                padding: 0.5rem;
-            }
-
-            .carousel-item {
-                flex: 0 0 calc(100vw - 3rem);
-                max-width: 300px;
-            }
-
-            .carousel-item img {
+            .project-item img {
                 height: 200px;
-            }
-
-            .carousel-item .caption h3 {
-                font-size: 1.1rem;
-            }
-
-            .carousel-item .caption p {
-                font-size: 0.75rem;
-            }
-
-            .carousel-nav {
-                margin-top: 1.5rem;
-                gap: 0.75rem;
-            }
-
-            .carousel-btn {
-                width: 40px;
-                height: 40px;
-            }
-
-            .dot {
-                width: 8px;
-                height: 8px;
             }
 
             .intro {
@@ -741,17 +644,6 @@
                 font-size: 1.5rem;
             }
 
-            .carousel-item {
-                flex: 0 0 calc(100vw - 2rem);
-            }
-
-            .section-title h2 {
-                font-size: 1.3rem;
-            }
-
-            .contact h2 {
-                font-size: 1.3rem;
-            }
         }
 
         /* Safe area for notched devices */
@@ -770,35 +662,8 @@
 
         /* Touch device optimizations */
         @media (hover: none) and (pointer: coarse) {
-            .carousel-item:hover {
+            .project-item:hover {
                 transform: none;
-            }
-
-            .carousel-btn:hover,
-            .lightbox-nav:hover,
-            .lightbox-close:hover {
-                background: var(--color-bg);
-                border-color: var(--color-border);
-                color: var(--color-text);
-            }
-
-            .contact-links a:hover {
-                background: var(--color-accent);
-                transform: none;
-                box-shadow: none;
-            }
-
-            /* Larger tap targets for touch */
-            .carousel-btn,
-            .lightbox-close {
-                min-width: 44px;
-                min-height: 44px;
-            }
-
-            .dot {
-                min-width: 12px;
-                min-height: 12px;
-                padding: 6px;
             }
         }
 
@@ -836,31 +701,18 @@
                 scroll-behavior: auto;
             }
 
-            .carousel-item,
-            .carousel-btn,
-            .lightbox-nav,
-            .lightbox-close,
-            nav a,
-            .contact-links a {
+            .project-item {
                 transition: none;
             }
         }
 
         /* High contrast option */
         @media (prefers-contrast: high) {
-            .carousel-item img {
+            .project-item img {
                 border: 1px solid var(--color-text);
             }
 
-            .carousel-btn,
-            .lightbox-nav,
-            .lightbox-close {
-                border: 2px solid var(--color-text);
-            }
-
-            nav a,
-            .intro p,
-            .lightbox-caption p {
+            .intro p {
                 color: var(--color-text);
             }
         }
@@ -868,15 +720,9 @@
 </head>
 <body>
     <header>
-        <h1>NOAM KEREN</h1>
-        <p>PRODUCT (UX/UI) DESIGNER</p>
+        <a href="index.html" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-left: 12rem;"><img src="images/shnatz.avif" alt="Shnatz" style="height: 26px;"> <span style="font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 12px; color: var(--color-text);">UX · UI · DESIGN</span></a>
     </header>
 
-    <nav>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
 
     <main>
         <section id="about" class="intro">
@@ -885,183 +731,72 @@
         </section>
 
         <section id="portfolio">
-            <div class="section-title">
-                <h2>SELECTED WORKS</h2>
-                <p>A collection of recent UI/UX design projects</p>
-            </div>
+            <div class="project-grid">
+                <a href="toyswapp.html" class="project-item">
+                    <img src="images/toyswapp-thumbnail.png" alt="ToySwapp - Toy Swapping Platform">
+                    <div class="caption">
+                        <h3>ToySwapp</h3>
+                        <p>Mobile app for swapping toys</p>
+                    </div>
+                </a>
 
-            <div class="carousel-container">
-                <div class="carousel" id="carousel">
-                    <a href="toyswapp.html" class="carousel-item" data-index="0">
-                        <img src="images/toyswapp-thumbnail.png" alt="ToySwapp - Toy Swapping Platform">
-                        <div class="caption">
-                            <h3>ToySwapp</h3>
-                            <p>Mobile app for swapping toys</p>
-                        </div>
-                    </a>
+                <a href="ahoy.html" class="project-item">
+                    <img src="images/ahoy-thumbnail.png" alt="Ahoy - Branding Project">
+                    <div class="caption">
+                        <h3>Ahoy</h3>
+                        <p>ReBranding for Pirates</p>
+                    </div>
+                </a>
 
-                    <a href="ahoy.html" class="carousel-item" data-index="1">
-                        <img src="images/ahoy-thumbnail.png" alt="Ahoy - Branding Project">
-                        <div class="caption">
-                            <h3>Ahoy</h3>
-                            <p>ReBranding for Pirates</p>
-                        </div>
-                    </a>
+                <a href="vault.html" class="project-item">
+                    <img src="images/vault-thumbnail.png" alt="Vault - Media Collection App">
+                    <div class="caption">
+                        <h3>Vault</h3>
+                        <p>Organize your favorite stickers, Emojis & GIFs together</p>
+                    </div>
+                </a>
 
-                    <a href="vault.html" class="carousel-item" data-index="2">
-                        <img src="images/vault-thumbnail.png" alt="Vault - Media Collection App">
-                        <div class="caption">
-                            <h3>Vault</h3>
-                            <p>Organize your favorite stickers, Emojis & GIFs together</p>
-                        </div>
-                    </a>
+                <a href="dogwalker-guy.html" class="project-item">
+                    <img src="images/guy-thumbnail.png" alt="Dogwalker Guy - Dog Walking Service">
+                    <div class="caption">
+                        <h3>Dogwalker Guy</h3>
+                        <p>Responsive web design for a local dog walking service</p>
+                    </div>
+                </a>
 
-                    <a href="dogwalker-guy.html" class="carousel-item" data-index="3">
-                        <img src="images/guy-thumbnail.png" alt="Dogwalker Guy - Dog Walking Service">
-                        <div class="caption">
-                            <h3>Dogwalker Guy</h3>
-                            <p>Responsive web design for a local dog walking service</p>
-                        </div>
-                    </a>
-
-                    <a href="polymath.html" class="carousel-item" data-index="4">
-                        <img src="images/polymath-thumbnail.png" alt="Polymath - Skill Learning App">
-                        <div class="caption">
-                            <h3>Polymath</h3>
-                            <p>An app for learning new skills</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="carousel-nav">
-                    <button class="carousel-btn" id="prevBtn">←</button>
-                    <div class="carousel-dots" id="carouselDots"></div>
-                    <button class="carousel-btn" id="nextBtn">→</button>
-                </div>
+                <a href="polymath.html" class="project-item">
+                    <img src="images/polymath-thumbnail.png" alt="Polymath - Skill Learning App">
+                    <div class="caption">
+                        <h3>Polymath</h3>
+                        <p>An app for learning new skills</p>
+                    </div>
+                </a>
             </div>
         </section>
 
-        <section id="contact" class="contact">
-            <h2>LET'S WORK TOGETHER</h2>
-            <p>Have a project in mind? I'd love to hear about it.</p>
-            <div class="contact-links">
-                <a href="mailto:design@shnatz.com">Email Me</a>
-                <a href="https://www.linkedin.com/in/shnatz/" target="_blank">LinkedIn</a>
-            </div>
-        </section>
     </main>
 
     <footer>
-        <p>© 2024 Noam Keren. All rights reserved.</p>
+        <p><a href="mailto:design@shnatz.com" style="color: rgb(40, 40, 40); text-decoration: underline; font-weight: bold;">design@shnatz.com</a> <a href="https://www.linkedin.com/in/shnatz/" target="_blank"><img src="images/linkedin-4-64.png" alt="LinkedIn" style="height: 20px; vertical-align: middle; margin-left: 0.5rem;"></a></p>
     </footer>
 
     <script>
-        // Carousel functionality
-        const carousel = document.getElementById('carousel');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const dotsContainer = document.getElementById('carouselDots');
-        const items = document.querySelectorAll('.carousel-item');
+        const header = document.querySelector('header');
+        let lastScrollY = 0;
 
-        let currentIndex = 0;
-        let itemWidth, visibleItems, maxIndex;
+        window.addEventListener('scroll', () => {
+            const halfway = document.documentElement.scrollHeight * 0.25;
+            const scrollY = window.scrollY;
 
-        // Calculate responsive values
-        function calculateCarouselMetrics() {
-            const firstItem = items[0];
-            if (firstItem) {
-                const style = window.getComputedStyle(carousel);
-                const gap = parseFloat(style.gap) || 24;
-                itemWidth = firstItem.offsetWidth + gap;
-                visibleItems = Math.max(1, Math.floor(carousel.offsetWidth / itemWidth));
-                maxIndex = Math.max(0, items.length - visibleItems);
+            if (scrollY > halfway && scrollY > lastScrollY) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
             }
-        }
 
-        // Create/update dots based on screen size
-        function updateDotsCount() {
-            calculateCarouselMetrics();
-            dotsContainer.innerHTML = '';
-
-            // On mobile, create a dot for each item
-            const isMobile = window.innerWidth <= 480;
-            const dotCount = isMobile ? items.length : maxIndex + 1;
-
-            for (let i = 0; i < dotCount; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('dot');
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(i));
-                dotsContainer.appendChild(dot);
-            }
-        }
-
-        function updateDots() {
-            const dots = document.querySelectorAll('.dot');
-            const isMobile = window.innerWidth <= 480;
-
-            dots.forEach((dot, index) => {
-                if (isMobile) {
-                    // On mobile, highlight based on scroll position
-                    dot.classList.toggle('active', index === currentIndex);
-                } else {
-                    dot.classList.toggle('active', index === currentIndex);
-                }
-            });
-        }
-
-        function goToSlide(index) {
-            calculateCarouselMetrics();
-            const isMobile = window.innerWidth <= 480;
-            const max = isMobile ? items.length - 1 : maxIndex;
-
-            currentIndex = Math.max(0, Math.min(index, max));
-            carousel.scrollTo({
-                left: currentIndex * itemWidth,
-                behavior: 'smooth'
-            });
-            updateDots();
-        }
-
-        // Handle scroll events to update dots on swipe
-        let scrollTimeout;
-        carousel.addEventListener('scroll', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                calculateCarouselMetrics();
-                const scrollPosition = carousel.scrollLeft;
-                const newIndex = Math.round(scrollPosition / itemWidth);
-                if (newIndex !== currentIndex) {
-                    currentIndex = newIndex;
-                    updateDots();
-                }
-            }, 50);
-        });
-
-        // Recalculate on resize
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                updateDotsCount();
-                goToSlide(Math.min(currentIndex, maxIndex));
-            }, 150);
-        });
-
-        // Initialize
-        updateDotsCount();
-
-        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth' });
-            });
+            lastScrollY = scrollY;
         });
     </script>
+
 </body>
 </html>

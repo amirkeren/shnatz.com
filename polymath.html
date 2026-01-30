@@ -45,9 +45,21 @@
             padding: 1.5rem 2rem;
             background: var(--color-bg);
             border-bottom: 1px solid var(--color-border);
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
+            transition: opacity 0.4s ease;
+        }
+
+        nav.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        body {
+            padding-top: 60px;
         }
 
         .nav-brand {
@@ -516,6 +528,19 @@
 
         window.addEventListener('scroll', updateActiveLink);
         updateActiveLink();
+
+        const navEl = document.querySelector('nav');
+        let lastScrollY = 0;
+        window.addEventListener('scroll', () => {
+            const threshold = document.documentElement.scrollHeight * 0.25;
+            const scrollY = window.scrollY;
+            if (scrollY > threshold && scrollY > lastScrollY) {
+                navEl.classList.add('hidden');
+            } else {
+                navEl.classList.remove('hidden');
+            }
+            lastScrollY = scrollY;
+        });
     </script>
 
     <footer>
