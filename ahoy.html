@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahoy | Shnatz</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Yanone+Kaffeesatz:wght@200;300;400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-bg: rgb(255, 255, 255);
+            --color-text: rgb(0, 0, 0);
+            --color-text-light: rgb(50, 50, 50);
+            --color-text-muted: rgb(175, 175, 175);
+            --color-accent: rgb(108, 160, 157);
+            --color-accent-hover: rgb(88, 140, 137);
+            --color-border: rgb(230, 230, 230);
+            --font-heading: 'Yanone Kaffeesatz', sans-serif;
+            --font-body: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--color-text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 12rem;
+        }
+
+        .nav-back {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-back:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 0 2rem 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 44px;
+            font-weight: 300;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 2rem;
+            max-width: 100%;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            left: calc(50% - 2rem);
+            margin-left: -50vw;
+            margin-right: -50vw;
+            width: calc(100vw + 4rem);
+            background-color: rgb(221, 232, 235);
+            padding: 0;
+            margin-top: 0;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 1000px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 0;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 0.5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        [id] {
+            scroll-margin-top: 80px;
+        }
+
+        .section h2 {
+            font-family: var(--font-heading);
+            font-size: 44px;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
+        }
+
+        .section h3 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            color: rgb(0, 0, 0);
+        }
+
+        .section p {
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            max-width: 100%;
+        }
+
+        .section p a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .section p a:hover {
+            border-bottom-color: var(--color-accent);
+        }
+
+        .section img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--color-border);
+            margin: 0;
+        }
+
+        /* Problem / Solution */
+        .problem-solution {
+            background: rgb(245, 245, 245);
+            border-radius: 0;
+            padding: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            left: calc(50% - 2rem);
+            margin-left: -50vw;
+            margin-right: -50vw;
+            width: calc(100vw + 4rem);
+            padding-left: max(2rem, calc((100vw - 1000px) / 2 + 2rem + 2rem));
+            padding-right: max(2rem, calc((100vw - 1000px) / 2 + 2rem));
+        }
+
+        .problem-solution p {
+            margin-bottom: 0;
+        }
+
+        .problem-solution h3 + p {
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-solution h3:last-of-type + p {
+            margin-bottom: 0;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .image-grid img {
+            margin: 0;
+        }
+
+        .image-grid.three-col {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* Full Width Image */
+        .full-width {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding: 2rem;
+            background: rgb(250, 250, 250);
+        }
+
+        .full-width img {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Caption */
+        .caption {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            text-align: center;
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Insight list */
+        .insight-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 1.5rem;
+            max-width: 100%;
+        }
+
+        .insight-list li {
+            color: var(--color-text-light);
+            line-height: 1.8;
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .insight-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-accent);
+        }
+
+        /* Blockquote */
+        .insight-quote {
+            border-left: 3px solid var(--color-accent);
+            padding-left: 1.2rem;
+            margin: 1.5rem 0;
+            max-width: 100%;
+            font-style: italic;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        /* Before/After */
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+            align-items: center;
+        }
+
+        .before-after img { margin: 0; }
+
+        /* Back to top */
+        .back-to-projects {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .back-to-projects a {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--color-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .back-to-projects a:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        /* Side Panel */
+        .page-wrapper {
+            position: relative;
+        }
+
+        .side-panel {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 200px;
+            padding: 2rem 1.5rem;
+            height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+            z-index: 50;
+        }
+
+        .side-panel ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-panel li {
+            margin-bottom: 2.5rem;
+        }
+
+        .side-panel a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+            display: block;
+            padding: 0.3rem 0;
+        }
+
+        .side-panel a:hover,
+        .side-panel a.active {
+            color: var(--color-accent);
+        }
+
+        .page-content {
+            flex: 1;
+            min-width: 0;
+            padding-left: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .image-grid, .image-grid.three-col, .before-after {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
+            .side-panel {
+                display: none;
+            }
+
+            .page-wrapper {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-brand"><img src="images/shnatz.avif" alt="Shnatz" style="height: 26px;"> <span style="font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 12px;">UX · UI · DESIGN</span></a>
+        <a href="index.html#portfolio" class="nav-back">&larr; Back to Projects</a>
+    </nav>
+
+    <div class="page-wrapper">
+    <aside class="side-panel">
+        <ul>
+            <li><a href="#challenge">The Challenge</a></li>
+            <li><a href="#design-process">Design Process</a></li>
+            <li><a href="#brand-identity">Final Brand Identity</a></li>
+            <li><a href="#applications">Applications</a></li>
+            <li><a href="#takeaways">Key Takeaways</a></li>
+        </ul>
+    </aside>
+
+    <div class="page-content">
+    <section class="hero">
+        <div class="hero-image-wrapper">
+            <img src="images/ahoy/Hero_MIN.png" alt="Ahoy Branding" class="hero-image">
+        </div>
+        <h1 id="challenge">ReBranding for Pirates</h1>
+        <p class="hero-subtitle">Ahoy! Creative is a unique advertising agency with a special spirit. When they approached me to update their brand, allowing me to be wildly creative, I knew I was going to have a lot of fun…</p>
+
+        <div class="problem-solution" style="position: static; left: auto; margin-left: 0; margin-right: 0; width: 100%; padding-left: 2rem; padding-right: 2rem;">
+            <p><strong>Client:</strong> Ahoy! Creative</p>
+            <p><strong>Year:</strong> 2018</p>
+            <p><strong>My Role:</strong> UX, UI, Design, Illustrations</p>
+            <p><strong>Tools:</strong> Adobe Illustrator, Adobe Photoshop</p>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <h3>Catching that Ahoy! Essence</h3>
+        <p>Ahoy! Creative is a small advertising agency located in Tel Aviv, Israel. They strive to deliver impactful results with unique solutions for every client, by cracking marketing challenges in unconventional ways. As the company grew and expanded, their brand also needed to evolve. It was time for a new breeze.</p>
+        <p>The old branding featured a skull logo accompanied by a few vector assets to complete the visuals, highlighted by Black and Yellow (as shown here):</p>
+        <img src="images/ahoy/Old Logo.png" alt="Old Ahoy Branding">
+
+        <blockquote class="insight-quote">We want the new branding to stay in the same realm of pirates, but to look more dynamic and fun.</blockquote>
+    </section>
+
+    <section class="section" id="design-process">
+        <h2>Embark!</h2>
+        <p>I started my nautical journey by exploring the theme of pirates, delving into the realms of old seas, adventures and treasures.</p>
+        <p>Using custom illustrations to embody that unique Ahoy spirit was a natural choice. I happen to be an illustrator, so I couldn't be more excited to give my personal style to these ideas. I began by brainstorming and sketching various elements from this world.</p>
+        <img src="images/ahoy/Logo Sketches.png" alt="Logo Sketches">
+
+        <div class="image-grid">
+            <img src="images/ahoy/Sketches 1 MIN.png" alt="Sketches 1">
+            <img src="images/ahoy/Sketches 2 MIN.png" alt="Sketches 2">
+        </div>
+        <div class="image-grid">
+            <img src="images/ahoy/Sketches 3 MIN.png" alt="Sketches 3">
+            <img src="images/ahoy/Sketches 5 MIN.png" alt="Sketches 5">
+        </div>
+
+        <blockquote class="insight-quote">The skull is a being that represents our brand and our creative freedom. It's simple, in a good way. It is a true maverick: independent-minded, who does not conform to the usual standards and takes unconventional approaches. The skull is currently too static, we want it to be more spunky.</blockquote>
+    </section>
+
+    <section class="section" id="brand-identity">
+        <h2>It Starts with a Skull</h2>
+        <p>Appropriately for pirates, the old logo consisted of a skull - the essence of the brand. I started my design journey by sketching different aesthetics and styles.</p>
+        <p>These core values, distilled from the client interview, guided my process:</p>
+        <ul class="insight-list">
+            <li>"Chill" yet engaged</li>
+            <li>Intriguing yet approachable</li>
+            <li>Mischievous yet open-hearted and honest</li>
+            <li>Smart and creative</li>
+        </ul>
+
+        <p>The new skull is rounder and friendlier-looking. It is accompanied by a logotype, and can be used alone as well.</p>
+        <img src="images/ahoy/LOGO.png" alt="Final Ahoy Logo">
+
+        <h3>Creating a Font</h3>
+        <p>To complete the whacky and handmade feeling, I decided to create a custom font. After sketching, scanning, kerning, adjusting and testing - the typeface was born, available in English and in Hebrew.</p>
+        <img src="images/ahoy/Font.png" alt="Custom Typeface">
+
+        <h3>The Wind(s) Beneath the Sails</h3>
+        <p>Ahoy! offers a variety of solutions for every client's needs. Those include marketing, branding, copyrighting, social network content, SEO and more.</p>
+        <p>Each department has its own place and characteristics. To showcase that, I explored various elements from the pirates theme. After sorting and refining, I came to a specific embodiment for each department, leaving some for future ones.</p>
+
+        <h3>Defining and Refining</h3>
+        <p>The result was a visual style that challenges the seriousness of the advertising industry by incorporating playful and fantastical aesthetics. The monochrome base is enhanced with vibrant bursts of color and whimsical illustrations, creating a cohesive and engaging brand identity.</p>
+        <img src="images/ahoy/Style Guide.png" alt="Brand Style Guide">
+
+        <p>The illustrations can be applied across different touchpoints, including physical spaces, swag and packaging, as well as to digital platforms.</p>
+    </section>
+
+    <section class="section" id="applications">
+        <h2>Sail Online</h2>
+        <p>Initially, the clients proposed a rather simple structure for the website. However, after further discussions, we decided to let users immerse themselves in this world by making it as detailed and interactive as possible, discovering more as they dive deeper.</p>
+        <img src="images/ahoy/HomepageSketch MIN.png" alt="Website Design">
+
+        <p>Each section of the homepage was showcased in a different nautical appearance:</p>
+        <img src="images/ahoy/Forms MIN.png" alt="Form Design">
+
+        <p>To make this exploration more interactive some elements received hover animations. Buttons, arrows and form fields were hand drawn and customized for the website to further enrich the experience.</p>
+        <img src="images/ahoy/Mockup.jpg" alt="Brand Mockups">
+        <img src="images/ahoy/PIN.png" alt="Pin Design">
+    </section>
+
+    <section class="section" id="takeaways">
+        <div class="problem-solution">
+            <h2>Takeaways</h2>
+            <p>Personally, I thoroughly enjoyed working on this project. It included a variety of design components and steps, from updating the logo to crafting a vibrant and playful visual identity, each aimed at capturing the essence of Ahoy's adventurous spirit.</p>
+            <p>Through custom illustrations and a whimsical design approach, Ahoy's brand was transformed into a dynamic and engaging entity. The new visuals not only reflect their unconventional approach to marketing but also breathe new life into their online presence, adding to the new cohesive narrative.</p>
+        </div>
+    </section>
+
+    </div><!-- .page-content -->
+    </div><!-- .page-wrapper -->
+
+    <script>
+        const sections = document.querySelectorAll('[id]');
+        const navLinks = document.querySelectorAll('.side-panel a');
+
+        function updateActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+    </script>
+
+    <footer>
+        <p><a href="mailto:design@shnatz.com" style="color: rgb(40, 40, 40); text-decoration: underline; font-weight: bold;">design@shnatz.com</a> <a href="https://www.linkedin.com/in/shnatz/" target="_blank"><img src="images/linkedin-4-64.png" alt="LinkedIn" style="height: 20px; vertical-align: middle; margin-left: 0.5rem;"></a></p>
+    </footer>
+</body>
+</html>

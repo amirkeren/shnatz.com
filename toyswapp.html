@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToySwapp | Shnatz</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Yanone+Kaffeesatz:wght@200;300;400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-bg: rgb(255, 255, 255);
+            --color-text: rgb(0, 0, 0);
+            --color-text-light: rgb(50, 50, 50);
+            --color-text-muted: rgb(175, 175, 175);
+            --color-accent: rgb(108, 160, 157);
+            --color-accent-hover: rgb(88, 140, 137);
+            --color-border: rgb(230, 230, 230);
+            --font-heading: 'Yanone Kaffeesatz', sans-serif;
+            --font-body: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--color-text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 12rem;
+        }
+
+        .nav-back {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-back:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 0 2rem 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 44px;
+            font-weight: 300;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 2rem;
+            max-width: 100%;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            left: calc(50% - 2rem);
+            margin-left: -50vw;
+            margin-right: -50vw;
+            width: calc(100vw + 4rem);
+            background-color: rgb(221, 232, 235);
+            padding: 0;
+            margin-top: 0;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 1000px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 0;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-muted);
+        }
+
+        .meta-value {
+            font-size: 0.95rem;
+            color: var(--color-text);
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 0.5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        [id] {
+            scroll-margin-top: 80px;
+        }
+
+        .section h2 {
+            font-family: var(--font-heading);
+            font-size: 44px;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
+        }
+
+        .section h3 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            color: rgb(0, 0, 0);
+        }
+
+        .section p {
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            max-width: 100%;
+        }
+
+        .section p a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .section p a:hover {
+            border-bottom-color: var(--color-accent);
+        }
+
+        .section img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--color-border);
+            margin: 0;
+        }
+
+        /* Problem / Solution */
+        .problem-solution {
+            background: rgb(245, 245, 245);
+            border-radius: 0;
+            padding: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            left: calc(50% - 2rem);
+            margin-left: -50vw;
+            margin-right: -50vw;
+            width: calc(100vw + 4rem);
+            padding-left: max(2rem, calc((100vw - 1000px) / 2 + 2rem + 2rem));
+            padding-right: max(2rem, calc((100vw - 1000px) / 2 + 2rem));
+        }
+
+        .problem-solution p {
+            margin-bottom: 0;
+        }
+
+        .problem-solution h3 + p {
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-solution h3:last-of-type + p {
+            margin-bottom: 0;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .image-grid img {
+            margin: 0;
+        }
+
+        .image-grid.three-col {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* Full Width Image */
+        .full-width {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding: 2rem;
+            background: rgb(250, 250, 250);
+        }
+
+        .full-width img {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Caption */
+        .caption {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            text-align: center;
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Insight list */
+        .insight-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 1.5rem;
+            max-width: 100%;
+        }
+
+        .insight-list li {
+            color: var(--color-text-light);
+            line-height: 1.8;
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .insight-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-accent);
+        }
+
+        /* Blockquote */
+        .insight-quote {
+            border-left: 3px solid var(--color-accent);
+            padding-left: 1.2rem;
+            margin: 1.5rem 0;
+            max-width: 100%;
+            font-style: italic;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        /* Back to top */
+        .back-to-projects {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .back-to-projects a {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--color-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .back-to-projects a:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        /* Side Panel */
+        .page-wrapper {
+            position: relative;
+        }
+
+        .side-panel {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 200px;
+            padding: 2rem 1.5rem;
+            height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+            z-index: 50;
+        }
+
+        .side-panel ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-panel li {
+            margin-bottom: 2.5rem;
+        }
+
+        .side-panel a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+            display: block;
+            padding: 0.3rem 0;
+        }
+
+        .side-panel a:hover,
+        .side-panel a.active {
+            color: var(--color-accent);
+        }
+
+        .page-content {
+            flex: 1;
+            min-width: 0;
+            padding-left: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .image-grid.three-col {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
+            .side-panel {
+                display: none;
+            }
+
+            .page-wrapper {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-brand"><img src="images/shnatz.avif" alt="Shnatz" style="height: 26px;"> <span style="font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 12px;">UX · UI · DESIGN</span></a>
+        <a href="index.html#portfolio" class="nav-back">&larr; Back to Projects</a>
+    </nav>
+
+    <div class="page-wrapper">
+    <aside class="side-panel">
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#ideation">Ideation</a></li>
+            <li><a href="#takeaways">Takeaways</a></li>
+        </ul>
+    </aside>
+
+    <div class="page-content">
+    <section class="hero">
+        <div class="hero-image-wrapper">
+            <img src="images/toyswapp/Dribble show 1.png" alt="ToySwapp App Screens" class="hero-image">
+        </div>
+        <h1 id="overview">ToySwapp</h1>
+        <p class="hero-subtitle">ToySwapp is a community-driven platform designed to promote toy swapping among families. The platform encourages the reuse of toys, thus minimizing waste and teaching healthier consumer habits. ToySwapp aims to facilitate meaningful interactions within local communities.</p>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <h3>Background</h3>
+        <p>Children often find themselves quickly growing bored with their toys. Along with the effortless and quick way parents can buy and receive new products, purchasing new toys is simply a click away.</p>
+        <p>This is leading to a continuous cycle of new purchases, which not only contributes to environmental waste but also fosters unhealthy consumer habits at a young age. Exchanging unused toys can minimize waste and teach children about the value of sustainability and mindful consumption.</p>
+
+        <div class="problem-solution">
+            <h3>Problem</h3>
+            <p>Outgrowing toys and the ease of purchasing new products contribute to a continuous cycle of excessive consumption among children, leading to environmental waste and promoting unhealthy consumer habits at a young age.</p>
+
+            <h3>Solution</h3>
+            <p>Create a friendly and accessible interface to share used toys.</p>
+        </div>
+    </section>
+
+
+    <section class="section" id="research">
+        <h2>Research</h2>
+        <p>Having two children, I wanted to help solve this problem since I know how quickly they get bored with toys. This is leading to endless clutter around the house, with the kids not engaging enough with each toy before moving to the next one. The first step of the research was to make sure I was not being biased and whether other families share this feeling.</p>
+
+        <h3>Goals and Methodologies</h3>
+        <p>To identify users' motivations, concerns and expectations from such a platform, I sent participants a <a href="https://docs.google.com/forms/d/e/1FAIpQLScTG9i-3QYehT8g5ZJ2Va_vTKqz_B5mhtyROZp8lS5CADtONA/viewform">survey link</a> (created in Google Forms) to collect and analyze results. I divided the questions into three sections:</p>
+        <ul class="insight-list">
+            <li>General questions &mdash; to understand my target audience better.</li>
+            <li>Community engagement &mdash; to learn users' motivations towards such a platform.</li>
+            <li>Concerns and suggestions &mdash; to receive more specific feedback.</li>
+        </ul>
+        <img src="images/toyswapp/Survey.png" alt="User Survey Results">
+
+        <h3>Competitive Analysis</h3>
+        <p>To study similar design patterns, I examined large e-commerce services (Amazon, eBay, Temu, AliExpress). To learn how second-hand apps are designed I examined OfferUp, Facebook Marketplace, ThredUP and Etsy. I took notes of the information architecture and visual design of such apps.</p>
+        <img src="images/toyswapp/Competitors.png" alt="Competitive Analysis">
+
+        <div class="problem-solution">
+            <h3>Survey Takeaways</h3>
+            <p>There was a lot of interesting data and insights from the <a href="https://docs.google.com/document/d/1yJB6mppfqUnFknK-uLRRMVtUFrT_IjVl57t-lV69NgU/edit?usp=sharing">survey results</a>. These are the most insightful:</p>
+
+            <p>My initial idea is a solid enough foundation to build upon:</p>
+            <ul class="insight-list">
+                <li>10 out of 10 participants experienced unused toys clutter at home</li>
+                <li>6 out of 10 responses were apprehensive of the toy swapping concept</li>
+            </ul>
+
+            <p>Main concerns that emerged from participants:</p>
+            <ul class="insight-list">
+                <li>Hygiene: receiving unclean toys</li>
+                <li>Location and privacy sharing: especially when it is concerning children</li>
+            </ul>
+
+            <p>Features participants stated are most important (this question was open-ended):</p>
+            <ul class="insight-list">
+                <li>Having accurate item photos and description (6 out of 10 participants)</li>
+                <li>Having a rating / reviews system (2 out of 10 participants)</li>
+            </ul>
+        </div>
+        <img src="images/toyswapp/Concerns.png" alt="User Concerns">
+    </section>
+
+
+    <section class="section" id="ideation">
+        <h2>Ideation</h2>
+        <p>The first step of conceptualizing was generating ideas through brainstorming. I started with possible solutions for the main concerns participants shared with me.</p>
+        <div class="problem-solution">
+            <img src="images/toyswapp/Brainstorm.png" alt="Brainstorming Session" style="margin: 0;">
+        </div>
+
+        <h3>Project Roadmap</h3>
+        <p>The brainstorm brought up many ideas for features and options. I later sorted and prioritised all these ideas to write a <a href="https://www.shnatz.com/_files/ugd/83449f_6e9a9c6076d948b683afa449f91255cf.pdf">detailed project roadmap</a>.</p>
+    </section>
+
+
+    <section class="section">
+        <h2>Design</h2>
+        <p>The app's main feature is exchanging toys between users. After having an outline for the main screens, I focused on the swap flow and interaction. The first iteration was dividing the exchange to two options: In-person swapp and no-contact swap.</p>
+        <img src="images/toyswapp/Swap.png" alt="Swap Flow Diagram">
+
+        <h3>Updating to Mid-Hi Wireframes</h3>
+        <p>While iterating on the swap flow, I also updated the wireframes so that they will become better prototypes.</p>
+        <img src="images/toyswapp/Main Screens.png" alt="Main App Screens">
+
+        <div class="problem-solution">
+            <h3>Choosing Colors and Icons</h3>
+            <p>I chose a color palette that I feel communicates friendliness, playfulness and security.</p>
+            <img src="images/toyswapp/Frame 12579.png" alt="Color Palette and Icons" style="margin: 0;">
+            <h3>High Fidelity Wireframes</h3>
+            <p>The next step was to apply the new style guide to my wireframes:</p>
+            <img src="images/toyswapp/HiFi.png" alt="High Fidelity Wireframes" style="margin: 0;">
+        </div>
+    </section>
+
+
+    <section class="section">
+        <h2>Testing and Iterating</h2>
+        <p>I gathered feedback from multiple participants on the new prototype, which led to two significant insights that prompted a redesign of the entire swapping flow:</p>
+
+        <blockquote class="insight-quote">"Not everyone that wants to gift a toy necessarily want to receive one as well".</blockquote>
+        <p>That led me to stop labeling the process as a "swap", but rather center around listing or receiving an item. I postponed the swapping feature for later development, perhaps as a feature.</p>
+
+        <blockquote class="insight-quote">"Not everyone wants to be engaged in messages".</blockquote>
+        <p>That made me design two options for users to request an item:</p>
+        <ul class="insight-list">
+            <li>Requesting an item requires the user to message the other user.</li>
+            <li>All notifications and requests will be facilitated by the app.</li>
+        </ul>
+        <img src="images/toyswapp/Option2.png" alt="Alternative Request Flow">
+    </section>
+
+
+    <section class="section" id="takeaways">
+        <div class="problem-solution">
+            <h2>Takeaways</h2>
+            <p>This project began with a problem that resonated with me, motivating me to contribute a solution. Through research, I discovered that many others shared similar feelings, providing valuable insights that fueled the design process. Given the project brief was to create an MVP within an 80-hour constraint, I prioritized essential features and learned a lot about designing under time limitations, including incorporating user feedback into the design effectively. I feel with further development this could become a powerful tool that could bring a lot of impact to users.</p>
+        </div>
+    </section>
+
+    </div><!-- .page-content -->
+    </div><!-- .page-wrapper -->
+
+    <script>
+        const sections = document.querySelectorAll('[id]');
+        const navLinks = document.querySelectorAll('.side-panel a');
+
+        function updateActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+    </script>
+
+    <footer>
+        <p><a href="mailto:design@shnatz.com" style="color: rgb(40, 40, 40); text-decoration: underline; font-weight: bold;">design@shnatz.com</a> <a href="https://www.linkedin.com/in/shnatz/" target="_blank"><img src="images/linkedin-4-64.png" alt="LinkedIn" style="height: 20px; vertical-align: middle; margin-left: 0.5rem;"></a></p>
+    </footer>
+</body>
+</html>

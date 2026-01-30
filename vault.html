@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vault | Shnatz</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Yanone+Kaffeesatz:wght@200;300;400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-bg: rgb(255, 255, 255);
+            --color-text: rgb(0, 0, 0);
+            --color-text-light: rgb(50, 50, 50);
+            --color-text-muted: rgb(175, 175, 175);
+            --color-accent: rgb(108, 160, 157);
+            --color-accent-hover: rgb(88, 140, 137);
+            --color-border: rgb(230, 230, 230);
+            --font-heading: 'Yanone Kaffeesatz', sans-serif;
+            --font-body: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--color-text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 12rem;
+        }
+
+        .nav-back {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-back:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 0 2rem 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 44px;
+            font-weight: 300;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 2rem;
+            max-width: 100%;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            left: calc(50% - 2rem);
+            margin-left: -50vw;
+            margin-right: -50vw;
+            width: calc(100vw + 4rem);
+            background-color: rgb(221, 232, 235);
+            padding: 0;
+            margin-top: 0;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 1000px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 0;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 0.5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        [id] {
+            scroll-margin-top: 80px;
+        }
+
+        .section h2 {
+            font-family: var(--font-heading);
+            font-size: 44px;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
+        }
+
+        .section h3 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            color: rgb(0, 0, 0);
+        }
+
+        .section p {
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            max-width: 100%;
+        }
+
+        .section p a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .section p a:hover {
+            border-bottom-color: var(--color-accent);
+        }
+
+        .section img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--color-border);
+            margin: 0;
+        }
+
+        /* Problem / Solution */
+        .problem-solution {
+            background: rgb(245, 245, 245);
+            border-radius: 0;
+            padding: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            left: calc(50% - 2rem);
+            margin-left: -50vw;
+            margin-right: -50vw;
+            width: calc(100vw + 4rem);
+            padding-left: max(2rem, calc((100vw - 1000px) / 2 + 2rem + 2rem));
+            padding-right: max(2rem, calc((100vw - 1000px) / 2 + 2rem));
+        }
+
+        .problem-solution p {
+            margin-bottom: 0;
+        }
+
+        .problem-solution h3 + p {
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-solution h3:last-of-type + p {
+            margin-bottom: 0;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .image-grid img {
+            margin: 0;
+        }
+
+        .image-grid.three-col {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* Full Width Image */
+        .full-width {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding: 2rem;
+            background: rgb(250, 250, 250);
+        }
+
+        .full-width img {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Caption */
+        .caption {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            text-align: center;
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Insight list */
+        .insight-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 1.5rem;
+            max-width: 100%;
+        }
+
+        .insight-list li {
+            color: var(--color-text-light);
+            line-height: 1.8;
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .insight-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-accent);
+        }
+
+        /* Blockquote */
+        .insight-quote {
+            border-left: 3px solid var(--color-accent);
+            padding-left: 1.2rem;
+            margin: 1.5rem 0;
+            max-width: 100%;
+            font-style: italic;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        /* Back to top */
+        .back-to-projects {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .back-to-projects a {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--color-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .back-to-projects a:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        /* Side Panel */
+        .page-wrapper {
+            position: relative;
+        }
+
+        .side-panel {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 200px;
+            padding: 2rem 1.5rem;
+            height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+            z-index: 50;
+        }
+
+        .side-panel ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-panel li {
+            margin-bottom: 2.5rem;
+        }
+
+        .side-panel a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+            display: block;
+            padding: 0.3rem 0;
+        }
+
+        .side-panel a:hover,
+        .side-panel a.active {
+            color: var(--color-accent);
+        }
+
+        .page-content {
+            flex: 1;
+            min-width: 0;
+            padding-left: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .image-grid, .image-grid.three-col {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
+            .side-panel {
+                display: none;
+            }
+
+            .page-wrapper {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-brand"><img src="images/shnatz.avif" alt="Shnatz" style="height: 26px;"> <span style="font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 12px;">UX · UI · DESIGN</span></a>
+        <a href="index.html#portfolio" class="nav-back">&larr; Back to Projects</a>
+    </nav>
+
+    <div class="page-wrapper">
+    <aside class="side-panel">
+        <ul>
+            <li><a href="#problem">Background</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#design-process">Ideation</a></li>
+            <li><a href="#final-design">Design</a></li>
+            <li><a href="#takeaways">Takeaways</a></li>
+        </ul>
+    </aside>
+
+    <div class="page-content">
+    <section class="hero">
+        <div class="hero-image-wrapper">
+            <img src="images/vault/Main.png" alt="Vault App Screens" class="hero-image">
+        </div>
+        <h1 id="problem">Vault</h1>
+        <p class="hero-subtitle">Most human communication is not composed of words; it is body language, eye contact, tone of voice and reactions. Online communication is now trying to convey this with the use of visuals such as emojis, stickers and GIFs. They are integrated on many platforms and are very easily accessible for use by all and adds texture, fun and humanity to chat.</p>
+        <p class="hero-subtitle">Vault is a platform for saving, managing, creating and sharing emojis, stickers, and GIFs seamlessly across messaging apps. This was a course project with a scope of 80 hours.</p>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <h3>Background</h3>
+        <p>This project in the course was about adding a feature to an existing app, website or similar service.</p>
+        <p>My initial brief was to add an easy stickers creation feature for WhatsApp. I chose this subject since I personally use stickers in chats all the time, I think it's a fun and engaging way to express yourself and make conversations more personal. Unfortunately, I found it very inconvenient to create and manage stickers on WhatsApp.</p>
+
+        <div class="problem-solution" style="position: static; left: auto; margin-left: 0; margin-right: 0; width: 100%; padding-left: 2rem; padding-right: 2rem;">
+            <p><strong>Role:</strong> UX, UI Design</p>
+            <p><strong>Tools:</strong> Figma, Lyssna, Adobe Photoshop</p>
+            <p><strong>Scope:</strong> 80 hours</p>
+        </div>
+    </section>
+
+    <section class="section" id="research">
+        <h2>Research</h2>
+        <p>I started my research process to learn if users share my frustrations, as well as to understand their pain points and habits using stickers on WhatsApp. However, after synthesizing my research results, I found a wider definition of the problem space and shifted my design goals in a new direction.</p>
+
+        <h3>Goals and Methodologies</h3>
+        <p>To learn more about users' use of reactions, I interviewed 20 participants by asking questions about using WhatsApp in general, using reactions, using stickers specifically, and creating custom stickers in WhatsApp.</p>
+        <p>The survey was created and shared via Lyssna.</p>
+        <img src="images/vault/Survey.png" alt="Survey Results">
+
+        <h3>Key Insights</h3>
+        <p>Going through the survey results, two insights made me think in a wider direction:</p>
+        <p>First, most participants don't like to use stickers and prefer emojis:</p>
+        <ul class="insight-list">
+            <li>19 out of 20 participants ranked "Emojis" as their first priority for reactions.</li>
+            <li>Regarding using stickers in particular in chats, 10 participants (50%) said "rarely".</li>
+            <li>5 participants (25%) said "once in a while".</li>
+        </ul>
+        <p>As for the reason for that, many stated it just wasn't convenient enough to use:</p>
+        <blockquote class="insight-quote">"I don't know why but I always forget stickers even exist"</blockquote>
+        <blockquote class="insight-quote">"It's less accessible than emojis"</blockquote>
+        <blockquote class="insight-quote">"It's not very intuitive"</blockquote>
+        <blockquote class="insight-quote">"To be honest, I am not sure I know how"</blockquote>
+        <p>This comment, along with others, made me rethink of what I had previously thought was the main pain point:</p>
+        <blockquote class="insight-quote">"When I look for an emoji, everything is organized. I know where things are, always at the same place. With stickers, it is a mess. I don't know where to find things. so much so that I don't like entering the stickers section. Maybe If it was arranged by categories, or if I could add my own labels to it, it would work better for me. I don't know how to access, view or search for my stickers".</blockquote>
+
+        <h3>Competitive Analysis</h3>
+        <p>These are the current available options for using the three types of reactions:</p>
+        <ul class="insight-list">
+            <li><strong>Emojis:</strong> Emojis are standardized characters, meaning they have pre-set categories. As such, users can't edit the categories or save favorites.</li>
+            <li><strong>GIFs:</strong> On some apps (like WhatsApp), users can use the built-in GIFs search tool to add GIFs. Additionally, third-party keyboard apps offer similar options. However, there is not a way to save favorites or create groups.</li>
+            <li><strong>Stickers:</strong> Some apps offer users to add and use sticker packs through the app. Additionally, they can use third-party apps to create, download and share sticker packs. However, these are app-specific (users can't easily use WhatsApp stickers on Telegram and vice versa).</li>
+        </ul>
+
+        <h3>Re-defining the Problem</h3>
+        <p>Along with the lack of options to search and save favorite content for each of the reaction types, the bigger problem lies in the lack of integration between them:</p>
+        <p>There is not a central place where users can access and manage (save, edit, search, share) the three different types, let alone use it across other messaging apps.</p>
+
+        <h3>Intro To Solution</h3>
+        <p>The app will be a platform that enables users to efficiently save and categorize all types of reactions in one place. Users could easily view and add these reactions in every messaging app they use.</p>
+    </section>
+
+    <section class="section" id="design-process">
+        <h2>Ideation</h2>
+        <p>Research results led me to outline these personas, to define users' needs, behaviors, and goals:</p>
+        <div class="image-grid three-col">
+            <img src="images/vault/PER1.png" alt="Persona 1 - Sarah">
+            <img src="images/vault/PER2.png" alt="Persona 2">
+            <img src="images/vault/PER3.png" alt="Persona 3">
+        </div>
+
+        <h3>Why Vault?</h3>
+        <p>Now that the app became a concept of its own, it needed a name. As part of the ideation process I was brainstorming different names within the core values: conversation, keepsake and addition.</p>
+        <p>A vault - being a secure storage or repository used to store valuable items or important assets - seemed like a good match.</p>
+        <img src="images/vault/Names.png" alt="Name Exploration">
+    </section>
+
+    <section class="section" id="final-design">
+        <h2>Design</h2>
+        <p>After exploring different layouts for the app, I decided it will have two states you can interact with.</p>
+
+        <h3>Chat Mode</h3>
+        <p>The first one is a floating action button that displays on top of the messaging screen. When clicked, it opens as a drawer over the chat. This was the initial design, which was later iterated and updated:</p>
+        <img src="images/vault/Chat mode.png" alt="Chat Mode">
+
+        <h3>Opening the App Directly</h3>
+        <p>The former option (while in a chat) offers limited options in order to quickly add reactions to the chat.</p>
+        <p>In order to edit collections and manage favorites, users need to open the app on its own.</p>
+        <img src="images/vault/Main screens.png" alt="Main App Screens">
+
+        <h3>Collections</h3>
+        <p>Collections are groups of reactions. They are combined together by the user, and can be based on any subject. This allows users to personalize their communication by quickly accessing a group of reactions that suits the conversation the most, and easily adding them to the chat.</p>
+        <img src="images/vault/Collections.png" alt="Collections Feature">
+
+        <h3>Managing Collections</h3>
+        <img src="images/vault/Early version.png" alt="Managing Collections">
+
+        <h3>Testing and Iterating</h3>
+        <p>The main feedback I received from testing was that while in chat mode, the design looks too cluttered and overwhelming to use within a chat. After testing a few other layouts, I chose a more compact look for the drawer.</p>
+        <img src="images/vault/In WhatsApp Chat Demo.png" alt="WhatsApp Integration Demo">
+    </section>
+
+    <section class="section" id="takeaways">
+        <div class="problem-solution">
+            <h2>Key Takeaways</h2>
+            <p>What started with the objective of adding a feature to an existing service, ended up being a standalone solution that answers to a wider problem than the one I had initially approached.</p>
+            <p>The existing limitations in saving and organizing reactions together prompted the design of an innovative app solution. The aim was then to design a user-friendly interface which allows users to efficiently organize their favorite reactions, and seamlessly incorporate them into their chats. This provides users with a valuable tool to enhance their messaging experiences, enabling them to express themselves more creatively and effectively across different communication platforms.</p>
+        </div>
+    </section>
+
+    </div><!-- .page-content -->
+    </div><!-- .page-wrapper -->
+
+    <script>
+        const sections = document.querySelectorAll('[id]');
+        const navLinks = document.querySelectorAll('.side-panel a');
+
+        function updateActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+    </script>
+
+    <footer>
+        <p><a href="mailto:design@shnatz.com" style="color: rgb(40, 40, 40); text-decoration: underline; font-weight: bold;">design@shnatz.com</a> <a href="https://www.linkedin.com/in/shnatz/" target="_blank"><img src="images/linkedin-4-64.png" alt="LinkedIn" style="height: 20px; vertical-align: middle; margin-left: 0.5rem;"></a></p>
+    </footer>
+</body>
+</html>

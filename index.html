@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noam Keren | Product (UX/UI) Designer</title>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Yanone+Kaffeesatz:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-bg: rgb(255, 255, 255);
+            --color-text: rgb(65, 65, 65);
+            --color-text-light: rgb(120, 120, 120);
+            --color-text-muted: rgb(175, 175, 175);
+            --color-accent: rgb(108, 160, 157);
+            --color-accent-hover: rgb(88, 140, 137);
+            --color-border: rgb(230, 230, 230);
+            --font-heading: 'Yanone Kaffeesatz', sans-serif;
+            --font-body: 'Open Sans', 'Lucida Sans Unicode', Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        header h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        header p {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            padding: 1.5rem;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            transition: color 0.2s ease;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        .section-title p {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* Carousel Container */
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            padding: 1rem 0;
+        }
+
+        .carousel-item {
+            flex: 0 0 280px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .carousel-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .carousel-item:hover img {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .carousel-item .caption {
+            padding: 1rem 0.5rem;
+            text-align: center;
+        }
+
+        .carousel-item .caption h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0.3rem;
+            color: var(--color-text);
+        }
+
+        .carousel-item .caption p {
+            font-size: 0.8rem;
+            color: var(--color-text-light);
+        }
+
+        /* Carousel Navigation */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--color-border);
+            background: var(--color-bg);
+            color: var(--color-text);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+        }
+
+        .carousel-btn:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: white;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--color-border);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--color-accent);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.98);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .lightbox-caption {
+            text-align: center;
+            padding: 1.5rem;
+            max-width: 600px;
+        }
+
+        .lightbox-caption h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        .lightbox-caption p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--color-border);
+            background: var(--color-bg);
+            color: var(--color-text);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: white;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--color-border);
+            background: var(--color-bg);
+            color: var(--color-text);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: white;
+        }
+
+        .lightbox-prev {
+            left: 2rem;
+        }
+
+        .lightbox-next {
+            right: 2rem;
+        }
+
+        .lightbox-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+
+        .lightbox-swipe-hint {
+            display: none;
+            position: absolute;
+            bottom: 4rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--color-text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            animation: fadeInOut 3s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            20%, 80% { opacity: 1; }
+        }
+
+        /* Intro Section */
+        .intro {
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+            scroll-margin-top: 80px;
+        }
+
+        .intro p {
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            font-weight: 300;
+            font-size: 1rem;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+            margin-top: 6rem;
+            padding: 4rem;
+        }
+
+        .contact h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+            color: var(--color-text);
+        }
+
+        .contact p {
+            color: var(--color-text-light);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .contact-links a {
+            padding: 0.8rem 2rem;
+            background: var(--color-accent);
+            border: none;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.2s ease;
+            font-weight: 400;
+        }
+
+        .contact-links a:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(108, 160, 157, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--color-border);
+            margin-top: 4rem;
+        }
+
+        /* Responsive - Tablet */
+        @media (max-width: 1024px) {
+            main {
+                padding: 3rem 1.5rem;
+            }
+
+            .intro {
+                margin-bottom: 3rem;
+            }
+
+            .contact {
+                padding: 3rem 2rem;
+            }
+        }
+
+        /* Responsive - Small Tablet / Large Phone */
+        @media (max-width: 768px) {
+            header {
+                padding: 2.5rem 1.5rem;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+                letter-spacing: 0.15em;
+            }
+
+            header p {
+                font-size: 0.85rem;
+            }
+
+            nav {
+                gap: 1.5rem;
+                padding: 1.2rem;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+            }
+
+            main {
+                padding: 2.5rem 1rem;
+            }
+
+            .section-title {
+                margin-bottom: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .carousel {
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding: 1rem 0.5rem;
+                gap: 1rem;
+            }
+
+            .carousel-item {
+                flex: 0 0 260px;
+                scroll-snap-align: center;
+            }
+
+            .carousel-item img {
+                height: 180px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .intro {
+                margin-bottom: 2.5rem;
+            }
+
+            .intro p {
+                font-size: 0.95rem;
+            }
+
+            .contact {
+                margin-top: 4rem;
+                padding: 2.5rem 1.5rem;
+            }
+
+            .contact h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .contact-links a {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.8rem;
+            }
+
+            /* Lightbox mobile adjustments */
+            .lightbox {
+                padding: 1rem;
+            }
+
+            .lightbox-close {
+                top: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+            }
+
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .lightbox-prev {
+                left: 0.5rem;
+            }
+
+            .lightbox-next {
+                right: 0.5rem;
+            }
+
+            .lightbox-content img {
+                max-height: 50vh;
+            }
+
+            .lightbox-caption {
+                padding: 1rem 0.5rem;
+            }
+
+            .lightbox-caption h3 {
+                font-size: 1.3rem;
+            }
+
+            .lightbox-caption p {
+                font-size: 0.85rem;
+            }
+
+            footer {
+                padding: 2rem 1rem;
+                margin-top: 3rem;
+            }
+        }
+
+        /* Responsive - Mobile Phone */
+        @media (max-width: 480px) {
+            header {
+                padding: 2rem 1rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+                letter-spacing: 0.1em;
+            }
+
+            header p {
+                font-size: 0.75rem;
+                letter-spacing: 0.1em;
+            }
+
+            nav {
+                gap: 1rem;
+                padding: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 0.75rem;
+                letter-spacing: 0.05em;
+            }
+
+            main {
+                padding: 2rem 0.75rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.5rem;
+                letter-spacing: 0.1em;
+            }
+
+            .section-title p {
+                font-size: 0.8rem;
+            }
+
+            .carousel {
+                gap: 0.75rem;
+                padding: 0.5rem;
+            }
+
+            .carousel-item {
+                flex: 0 0 calc(100vw - 3rem);
+                max-width: 300px;
+            }
+
+            .carousel-item img {
+                height: 200px;
+            }
+
+            .carousel-item .caption h3 {
+                font-size: 1.1rem;
+            }
+
+            .carousel-item .caption p {
+                font-size: 0.75rem;
+            }
+
+            .carousel-nav {
+                margin-top: 1.5rem;
+                gap: 0.75rem;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .intro {
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+
+            .intro p {
+                font-size: 0.9rem;
+                line-height: 1.7;
+            }
+
+            .contact {
+                margin-top: 3rem;
+                padding: 2rem 1rem;
+            }
+
+            .contact h2 {
+                font-size: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .contact p {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .contact-links a {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+                padding: 0.9rem 1.5rem;
+            }
+
+            /* Lightbox small phone */
+            .lightbox-nav {
+                display: none;
+            }
+
+            .lightbox-swipe-hint {
+                display: block;
+            }
+
+            .lightbox-indicator {
+                bottom: 1.5rem;
+                font-size: 0.8rem;
+            }
+
+            .lightbox-content {
+                max-width: 100%;
+            }
+
+            .lightbox-content img {
+                max-height: 45vh;
+                border-radius: 4px;
+            }
+
+            .lightbox-caption h3 {
+                font-size: 1.2rem;
+            }
+
+            .lightbox-caption p {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+
+            footer {
+                padding: 1.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Small phone (iPhone SE, etc.) */
+        @media (max-width: 375px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .carousel-item {
+                flex: 0 0 calc(100vw - 2rem);
+            }
+
+            .section-title h2 {
+                font-size: 1.3rem;
+            }
+
+            .contact h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Safe area for notched devices */
+        @supports (padding: env(safe-area-inset-bottom)) {
+            footer {
+                padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+            }
+
+            .lightbox {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .carousel-item:hover {
+                transform: none;
+            }
+
+            .carousel-btn:hover,
+            .lightbox-nav:hover,
+            .lightbox-close:hover {
+                background: var(--color-bg);
+                border-color: var(--color-border);
+                color: var(--color-text);
+            }
+
+            .contact-links a:hover {
+                background: var(--color-accent);
+                transform: none;
+                box-shadow: none;
+            }
+
+            /* Larger tap targets for touch */
+            .carousel-btn,
+            .lightbox-close {
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .dot {
+                min-width: 12px;
+                min-height: 12px;
+                padding: 6px;
+            }
+        }
+
+        /* Landscape phone */
+        @media (max-height: 500px) and (orientation: landscape) {
+            header {
+                padding: 1.5rem;
+            }
+
+            main {
+                padding: 1.5rem;
+            }
+
+            .lightbox-content img {
+                max-height: 60vh;
+            }
+
+            .lightbox-caption {
+                padding: 0.5rem;
+            }
+
+            .lightbox-caption h3 {
+                font-size: 1rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .lightbox-caption p {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Prefer reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .carousel {
+                scroll-behavior: auto;
+            }
+
+            .carousel-item,
+            .carousel-btn,
+            .lightbox-nav,
+            .lightbox-close,
+            nav a,
+            .contact-links a {
+                transition: none;
+            }
+        }
+
+        /* High contrast option */
+        @media (prefers-contrast: high) {
+            .carousel-item img {
+                border: 1px solid var(--color-text);
+            }
+
+            .carousel-btn,
+            .lightbox-nav,
+            .lightbox-close {
+                border: 2px solid var(--color-text);
+            }
+
+            nav a,
+            .intro p,
+            .lightbox-caption p {
+                color: var(--color-text);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NOAM KEREN</h1>
+        <p>PRODUCT (UX/UI) DESIGNER</p>
+    </header>
+
+    <nav>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="about" class="intro">
+            <p>Hi! I'm Noam Keren. I'm a Product (UX/UI) Designer with a degree in Graphic Design, currently living in Redmond, Washington. Prior to UX, I have been working as a Visual Designer for seven years.</p>
+            <p>I believe I can help businesses grow by using my creativity and experience, to find unique solutions and deliver engaging user experiences.</p>
+        </section>
+
+        <section id="portfolio">
+            <div class="section-title">
+                <h2>SELECTED WORKS</h2>
+                <p>A collection of recent UI/UX design projects</p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel" id="carousel">
+                    <a href="toyswapp.html" class="carousel-item" data-index="0">
+                        <img src="images/toyswapp-thumbnail.png" alt="ToySwapp - Toy Swapping Platform">
+                        <div class="caption">
+                            <h3>ToySwapp</h3>
+                            <p>Mobile app for swapping toys</p>
+                        </div>
+                    </a>
+
+                    <a href="ahoy.html" class="carousel-item" data-index="1">
+                        <img src="images/ahoy-thumbnail.png" alt="Ahoy - Branding Project">
+                        <div class="caption">
+                            <h3>Ahoy</h3>
+                            <p>ReBranding for Pirates</p>
+                        </div>
+                    </a>
+
+                    <a href="vault.html" class="carousel-item" data-index="2">
+                        <img src="images/vault-thumbnail.png" alt="Vault - Media Collection App">
+                        <div class="caption">
+                            <h3>Vault</h3>
+                            <p>Organize your favorite stickers, Emojis & GIFs together</p>
+                        </div>
+                    </a>
+
+                    <a href="dogwalker-guy.html" class="carousel-item" data-index="3">
+                        <img src="images/guy-thumbnail.png" alt="Dogwalker Guy - Dog Walking Service">
+                        <div class="caption">
+                            <h3>Dogwalker Guy</h3>
+                            <p>Responsive web design for a local dog walking service</p>
+                        </div>
+                    </a>
+
+                    <a href="polymath.html" class="carousel-item" data-index="4">
+                        <img src="images/polymath-thumbnail.png" alt="Polymath - Skill Learning App">
+                        <div class="caption">
+                            <h3>Polymath</h3>
+                            <p>An app for learning new skills</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="carousel-nav">
+                    <button class="carousel-btn" id="prevBtn">←</button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                    <button class="carousel-btn" id="nextBtn">→</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>LET'S WORK TOGETHER</h2>
+            <p>Have a project in mind? I'd love to hear about it.</p>
+            <div class="contact-links">
+                <a href="mailto:design@shnatz.com">Email Me</a>
+                <a href="https://www.linkedin.com/in/shnatz/" target="_blank">LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Noam Keren. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('carouselDots');
+        const items = document.querySelectorAll('.carousel-item');
+
+        let currentIndex = 0;
+        let itemWidth, visibleItems, maxIndex;
+
+        // Calculate responsive values
+        function calculateCarouselMetrics() {
+            const firstItem = items[0];
+            if (firstItem) {
+                const style = window.getComputedStyle(carousel);
+                const gap = parseFloat(style.gap) || 24;
+                itemWidth = firstItem.offsetWidth + gap;
+                visibleItems = Math.max(1, Math.floor(carousel.offsetWidth / itemWidth));
+                maxIndex = Math.max(0, items.length - visibleItems);
+            }
+        }
+
+        // Create/update dots based on screen size
+        function updateDotsCount() {
+            calculateCarouselMetrics();
+            dotsContainer.innerHTML = '';
+
+            // On mobile, create a dot for each item
+            const isMobile = window.innerWidth <= 480;
+            const dotCount = isMobile ? items.length : maxIndex + 1;
+
+            for (let i = 0; i < dotCount; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            const isMobile = window.innerWidth <= 480;
+
+            dots.forEach((dot, index) => {
+                if (isMobile) {
+                    // On mobile, highlight based on scroll position
+                    dot.classList.toggle('active', index === currentIndex);
+                } else {
+                    dot.classList.toggle('active', index === currentIndex);
+                }
+            });
+        }
+
+        function goToSlide(index) {
+            calculateCarouselMetrics();
+            const isMobile = window.innerWidth <= 480;
+            const max = isMobile ? items.length - 1 : maxIndex;
+
+            currentIndex = Math.max(0, Math.min(index, max));
+            carousel.scrollTo({
+                left: currentIndex * itemWidth,
+                behavior: 'smooth'
+            });
+            updateDots();
+        }
+
+        // Handle scroll events to update dots on swipe
+        let scrollTimeout;
+        carousel.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                calculateCarouselMetrics();
+                const scrollPosition = carousel.scrollLeft;
+                const newIndex = Math.round(scrollPosition / itemWidth);
+                if (newIndex !== currentIndex) {
+                    currentIndex = newIndex;
+                    updateDots();
+                }
+            }, 50);
+        });
+
+        // Recalculate on resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                updateDotsCount();
+                goToSlide(Math.min(currentIndex, maxIndex));
+            }, 150);
+        });
+
+        // Initialize
+        updateDotsCount();
+
+        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
